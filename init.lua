@@ -1,11 +1,3 @@
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
-
-vim.keymap.set('n', '<C-h>', ":Neotree filesystem reveal left<CR>", {})
-vim.keymap.set('n', '<C-e>', ':exit<CR>', {})
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -23,5 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local opts = {}
+
+require("vanilla-config")
 require("lazy").setup("plugins")
 print("file sourced")
