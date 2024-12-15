@@ -21,13 +21,16 @@ return {
   -- LSP-CONFIG
   {
     "neovim/nvim-lspconfig",
-      config = function()
+    config = function()
       local lspconfig = require("lspconfig")
-
-      lspconfig.pyright.setup(
-        {
-          filetypes = {"python"},
-        })
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      lspconfig.tsserver.setup({
+        capabilities = capabilities
+      })
+      lspconfig.pyright.setup({
+        filetypes = {"python"},
+        capabilities = capabilities
+      })
       lspconfig.lua_ls.setup({})
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
