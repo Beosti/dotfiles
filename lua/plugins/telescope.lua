@@ -1,8 +1,12 @@
+-- grepping files, certain strings
 return {
-  'nvim-telescope/telescope.nvim', tag = '0.1.8',
+  'nvim-telescope/telescope.nvim', tag = '0.1.8', -- grepping
   dependencies = { 'nvim-lua/plenary.nvim' },
+
   config = function()
     local builtin = require("telescope.builtin")
     vim.keymap.set('n', '<C-p>', builtin.find_files, {})
+    vim.keymap.set('n', '<C-l>', builtin.live_grep, {})
   end
 }
+
