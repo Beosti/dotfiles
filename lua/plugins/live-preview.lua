@@ -8,6 +8,8 @@ return {
     'folke/snacks.nvim'
   },
   config = function()
+    require('livepreview.config').set({})
     vim.keymap.set('n', '<C-,>', ':LivePreview start<CR>', {})
+    vim.keymap.set('n', '<C-;>', ':LivePreview close<CR>', {})
   end
 }
